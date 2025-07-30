@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -19,6 +18,7 @@ class Workout(models.Model):
     
     class Meta:
         ordering=['-date']
+        unique_together=['user','name']
     
 class Exercise(models.Model):
     workout=models.ForeignKey(Workout,on_delete=models.CASCADE,related_name="exercises")

@@ -23,5 +23,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         
         user=User.objects.create_user(username=username,email=email)
         user.set_password(password)
+        user.save()
         token=Token.objects.create(user=user)
         return token.key

@@ -26,10 +26,17 @@ class CreateWorkoutView(generics.CreateAPIView):
     def get_queryset(self):
         return models.Workout.objects.filter(user=self.request.user)
 
-class UpdateWorkoutView(generics.RetrieveUpdateAPIView):
+
+class UpdateWorkoutView(generics.UpdateAPIView):
     permission_classes=[IsAuthenticated]
     serializer_class=serializers.WorkoutSerializer
     
     def get_queryset(self):
         return models.Workout.objects.filter(user=self.request.user)
+
+class DeleteWorkoutView(generics.DestroyAPIView):
+    permission_classes=[IsAuthenticated]
+    serializer_class=serializers.WorkoutSerializer
     
+    def get_queryset(self):
+        return models.Workout.objects.filter(user=self.request.user)

@@ -25,14 +25,11 @@ class CreateWorkoutView(generics.CreateAPIView):
     
     def get_queryset(self):
         return models.Workout.objects.filter(user=self.request.user)
+
+class UpdateWorkoutView(generics.RetrieveUpdateAPIView):
+    permission_classes=[IsAuthenticated]
+    serializer_class=serializers.WorkoutSerializer
     
-    # def post(self, request):
-    #     workout_serializer=serializers.WorkoutSerializer(data=request.data)
-    #     exercises_serializer=serializers.ExerciseSerializer(data=request.data.pop('exercises'),many=True)
-    #     if exercises_serializer.is_valid():
-    #         if workout_serializer.is_valid():
-    #             workout_serializer.save()
-    #             return Response(status=status.HTTP_201_CREATED)
-    #         return Response(workout_serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-    #     return Response(workout_serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-        
+    def get_queryset(self):
+        return models.Workout.objects.filter(user=self.request.user)
+    

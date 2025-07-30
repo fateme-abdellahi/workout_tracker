@@ -19,9 +19,9 @@ class SignUpView(APIView):
     
 class LogoutView(APIView):
     def get(self, request):
-        # try:
+        try:
             token=Token.objects.get(user=request.user)
             token.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
-        # except:
-            # return Response(status=status.HTTP_400_BAD_REQUEST)
+        except:
+            return Response(status=status.HTTP_400_BAD_REQUEST)

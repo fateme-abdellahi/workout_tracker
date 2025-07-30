@@ -17,12 +17,15 @@ class Workout(models.Model):
     date=models.DateTimeField(blank=True,null=True)
     status=models.CharField(choices=STATUS_CHOICES,default="active")
     
+    class Meta:
+        ordering=['-date']
+    
 class Exercise(models.Model):
     workout=models.ForeignKey(Workout,on_delete=models.CASCADE,related_name="exercises")
     exercise_name=models.CharField(max_length=50)
     description=models.CharField(max_length=200)
     category=models.CharField(max_length=30)
     
-    repetitions=models.PositiveIntegerField() 
+    repetitions=models.PositiveIntegerField()
     sets=models.PositiveIntegerField()
     weights=models.CharField(blank=True,null=True,max_length=20)

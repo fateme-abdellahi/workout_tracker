@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 # from rest_framework.authtoken.models import Token
 from rest_framework_simplejwt.tokens import RefreshToken
 
-
 class ProfileSerializer(serializers.ModelSerializer):
     password=serializers.CharField(write_only=True)
     password2=serializers.CharField(write_only=True)
@@ -11,8 +10,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
         fields=['username','password','password2','email']
-        
-        
+   
     def validate(self,attrs):
         if attrs['password']!=attrs['password2']:
             raise serializers.ValidationError("passwords aren't the  same")

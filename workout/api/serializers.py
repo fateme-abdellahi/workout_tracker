@@ -48,7 +48,6 @@ class WorkoutSerializer(serializers.ModelSerializer):
         
         instance.exercises.all().delete()
         
-        
         if exercises:
             for exercise in exercises:
                 models.Exercise.objects.create(workout=instance,**exercise)

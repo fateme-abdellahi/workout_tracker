@@ -3,8 +3,6 @@ from rest_framework import status
 from django.urls import reverse
 import json
 
-# Create your tests here.
-
 class WorkoutCreationTest(APITestCase):
     def setUp(self):  
         self.url=reverse('create-workout')
@@ -57,6 +55,23 @@ class WorkoutCreationTest(APITestCase):
         data=json.dumps({
             'comment':'test comment',
             'status':'pending',
+            'date':'2025-01-01',
+            'exercises':[{
+                'exercise_name':'test exercise',
+                'description':'test description',
+                'category':'test category',
+                'repetitions':1,
+                'sets':1
+            }]
+        })
+        response=self.client.post(self.url,data=data,content_type='application/json')
+        self.assertEqual(response.status_code,status.HTTP_400_BAD_REQUEST)
+        
+        
+    def test_create_workout_wrong_status(self):
+        data=json.dumps({
+            'comment':'test comment',
+            'status':'wrong',
             'date':'2025-01-01',
             'exercises':[{
                 'exercise_name':'test exercise',

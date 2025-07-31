@@ -1,12 +1,9 @@
-from django.shortcuts import render
-from rest_framework import generics, filters, status
+from rest_framework import generics, filters
 from rest_framework.permissions import IsAuthenticated
 from . import serializers
 from .. import models
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.response import Response
 
-# Create your views here.
 class ListWorkoutView(generics.ListAPIView):
     permission_classes=[IsAuthenticated]
     serializer_class=serializers.WorkoutSerializer
@@ -25,7 +22,6 @@ class CreateWorkoutView(generics.CreateAPIView):
     
     def get_queryset(self):
         return models.Workout.objects.filter(user=self.request.user)
-
 
 class UpdateWorkoutView(generics.UpdateAPIView):
     permission_classes=[IsAuthenticated]

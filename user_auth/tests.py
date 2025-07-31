@@ -1,7 +1,6 @@
 from rest_framework.test import APITestCase
 from rest_framework import status
 from django.urls import reverse
-# Create your tests here.
 
 class AuthTest(APITestCase):
     def test_successfull_signup(self):
@@ -18,6 +17,15 @@ class AuthTest(APITestCase):
             "username": "test",
             "password": "1",
             "password2": "1",
+            "email":"test@email.com"
+        })
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        
+    def test_unmatched_passwords(self):
+        response = self.client.post(reverse('signup'), {
+            "username": "test",
+            "password": "11111111",
+            "password2": "22222222",
             "email":"test@email.com"
         })
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)

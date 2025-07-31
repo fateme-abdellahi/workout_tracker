@@ -39,10 +39,10 @@ class WorkoutSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         exercises=validated_data.pop("exercises",None)
         
-        instance.name=validated_data['name']
-        instance.comment=validated_data['comment']
-        instance.date=validated_data['date']
-        instance.status=validated_data['status']
+        instance.name=validated_data.get('name',instance.name)
+        instance.comment=validated_data.get('comment',instance.comment)
+        instance.date=validated_data.get('date',instance.date)
+        instance.status=validated_data.get('status',instance.status)
         
         instance.save()
         

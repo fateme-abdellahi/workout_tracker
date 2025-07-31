@@ -86,6 +86,9 @@ requests.post('/create/', json=workout_data, headers=headers)
 python manage.py test
 ```
 
+## 📝 Notes
+- The commented sections in the API highlight the setup for token-based authentication, which is currently disabled.
+
 ## 🛠️ Built With
 
 - **Django** - Web framework

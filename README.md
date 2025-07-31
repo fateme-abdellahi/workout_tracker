@@ -18,7 +18,6 @@ A Django REST Framework API for managing personal workout routines with JWT auth
 1. **Clone the repository**
    ```bash
    git clone https://github.com/fateme-abdellahi/workout_tracker.git
-   cd workout-api
    ```
 
 2. **Install dependencies**
@@ -100,6 +99,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-Email :fateme.abdellahii@gmail.com
+Email: fateme.abdellahii@gmail.com
 
 Project Link: [https://github.com/fateme-abdellahi/workout_tracker](https://github.com/fateme-abdellahi/workout_tracker)

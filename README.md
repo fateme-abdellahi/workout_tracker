@@ -84,6 +84,7 @@ requests.post('/create/', json=workout_data, headers=headers)
 ```bash
 # Run all tests
 python manage.py test
+```
 
 ## 🛠️ Built With
 

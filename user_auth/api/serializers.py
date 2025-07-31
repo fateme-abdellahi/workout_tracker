@@ -17,6 +17,15 @@ class ProfileSerializer(serializers.ModelSerializer):
         if attrs['password']!=attrs['password2']:
             raise serializers.ValidationError("passwords aren't the  same")
         return attrs
+    def validate_password(self, value):
+        if len(value)<8:
+            raise serializers.ValidationError("password's length can not be less than 8")
+        return value
+    
+    def validate_email(self,value):
+        if User.objects.filter(email=value):
+            raise serializers.ValidationError("email already exists")
+        return value
     
     def save(self, **kwargs):
         username=self.validated_data['username']

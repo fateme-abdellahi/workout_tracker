@@ -1,0 +1,44 @@
+@import url(./utils/variables.css);
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+    padding: 10px 20px;
+    border-radius: 10px;
+    align-items: center;
+    font-weight: 900;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo:hover {
+    cursor: pointer;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.navbar button {
+    padding: 7px 14px;
+    border-radius: 5px;
+    background-color: var(--red);
+    border: none;
+    font-weight: 900;
+    color: white;
+}
+
+.nav-link:hover {
+    background-color: var(--gray);
+}
+
+.nav-link--active {
+    background-color: var(--gray);
+}

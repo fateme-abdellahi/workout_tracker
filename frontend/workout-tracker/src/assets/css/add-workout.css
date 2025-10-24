@@ -1,0 +1,139 @@
+@import url(./utils/variables.css);
+
+form {
+    display: block;
+    margin: auto;
+    margin: 35px auto;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    padding: 35px 30px;
+    max-width: 1000px;
+}
+
+input,
+label,
+textarea {
+    display: block;
+    outline: none;
+}
+
+form>input,
+form>textarea {
+    margin-bottom: 20px;
+    margin-top: 3px;
+    width: 100%;
+    border: 2px solid var(--gray);
+    padding: 10px 12px;
+    font-size: large;
+    border-radius: 5px;
+}
+
+form>label {
+    font-size: 15px;
+}
+
+select {
+    border: 2px solid var(--gray);
+    padding: 3px;
+    border-radius: 4px;
+    width: 100px;
+}
+
+.exercises {
+    margin: 30px 10px;
+    padding: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--light-gray);
+
+}
+
+legend {
+    color: var(--dark-gray);
+}
+
+.exercises-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+    /* justify-content: space-between; */
+}
+
+.exercises-form * {
+    border-radius: 5px;
+    border: 2px solid var(--gray);
+    padding: 1px 5px;
+}
+
+.exercises-form button {
+    border: none;
+    background-color: var(--dark-green);
+    padding: 8px;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.exercises-form button:hover {
+    cursor: pointer;
+    background-color: var(--green);
+}
+
+.exercises-form input,
+.exercises-form textarea {
+    margin-bottom: 5px;
+    padding: 7px 10px;
+    width: 100%;
+}
+
+
+#exercise-repetitions {
+    width: 100px;
+    margin-right: 5px;
+}
+
+#exercise-sets {
+    width: 65px;
+    margin-right: 5px;
+}
+
+#exercise-weights {
+    width: 70px;
+}
+
+button[type="submit"] {
+    background-color: var(--orange);
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--light-orange);
+}
+
+.added-exercises {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: white;
+    margin-bottom: 30px;
+    padding: 10px;
+    padding-bottom: 15px;
+    border-radius: 7px;
+    border-left: 5px solid var(--purple);
+    box-shadow: var(--shadow);
+    color: var(--dark-gray);
+}
+
+.added-exercises-name {
+    width: 100%;
+    font-weight: 700;
+}

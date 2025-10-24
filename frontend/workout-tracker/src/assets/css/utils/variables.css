@@ -5,9 +5,12 @@
 
     /* colors */
     --light-gray: rgb(240, 236, 236);
+    --gray: rgb(212, 210, 210);
     --dark-gray: rgb(85, 84, 84);
     --green: rgb(26, 211, 26);
+    --dark-green: rgb(14, 148, 14);
     --red: rgb(219, 18, 18);
+    --light-orange: rgb(250, 203, 116);
     --orange: rgb(250, 172, 28);
     --purple: rgb(113, 27, 193);
 

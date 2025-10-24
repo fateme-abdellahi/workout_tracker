@@ -1,0 +1,70 @@
+@import url(./utils/variables.css);
+
+.container {
+    width: 90%;
+    margin: auto;
+    margin-top: 5vh;
+}
+
+.view-workout-workout-name {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.view-workout-workout-status {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.view-workout-workout-status-active {
+    color: var(--green);
+}
+
+.view-workout-workout-status-pending {
+    color: var(--orange);
+}
+
+.view-workout-workout-comment {
+    color: var(--dark-gray);
+    margin-bottom: 30px;
+}
+
+.view-workout-workout-datetime {
+    font-size: 15px;
+    color: var(--dark-gray);
+    margin-bottom: 5vh;
+}
+
+table {
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    color: var(--dark-gray);
+}
+
+table caption {
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 700;
+    padding-top: 10px;
+    border-top: 1px solid var(--gray);
+}
+
+th {
+    text-transform: uppercase;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 2px solid var(--gray);
+}
+
+td {
+    border-bottom: 1px solid var(--light-gray);
+    padding: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

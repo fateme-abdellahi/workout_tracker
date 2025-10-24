@@ -1,0 +1,72 @@
+@import url(../css/utils/variables.css);
+
+.workout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.workout:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.workout-status * {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.workout-name {
+    font-size: large;
+    font-weight: 800;
+
+}
+
+.workout-comment {
+    color: var(--dark-gray);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.workout-date {
+    color: var(--dark-gray);
+    font-size: small;
+    font-weight: 700;
+}
+
+.workout-active {
+    border-left: 6px solid var(--green);
+}
+
+.workout-pending {
+    border-left: 6px solid var(--orange);
+
+}
+
+.workout-buttons {
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.workout-buttons * {
+    width: 20px;
+    height: 20px;
+}
+
+.workout-buttons *:hover {
+    cursor: pointer;
+}
+
+.workout-delete-button {
+    color: var(--red);
+}
+
+.workout-edit-button {
+    color: var(--purple);
+}

@@ -1,0 +1,17 @@
+:root {
+    /* shadows */
+    --shadow: 3px 3px 10px rgb(212, 208, 208);
+    --shadow-hover: 7px 7px 20px rgb(212, 208, 208);
+
+    /* colors */
+    --light-gray: rgb(240, 236, 236);
+    --dark-gray: rgb(85, 84, 84);
+    --green: rgb(26, 211, 26);
+    --red: rgb(219, 18, 18);
+    --orange: rgb(250, 172, 28);
+    --purple: rgb(113, 27, 193);
+
+    /* buttons */
+    --red-button-shadow: 1px 1px 5px rgb(123, 69, 69);
+    --hover-red-button--color: rgb(250, 125, 125);
+}

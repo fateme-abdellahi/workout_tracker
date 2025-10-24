@@ -21,7 +21,7 @@
 
 .nav-link {
     text-decoration: none;
-    color: black;
+    color: var(--dark-gray);
     padding: 5px 10px;
     border-radius: 5px;
 }
@@ -30,15 +30,20 @@
     padding: 7px 14px;
     border-radius: 5px;
     background-color: var(--red);
-    border: none;
+    border: 2px solid var(--red);
     font-weight: 900;
     color: white;
+    box-shadow: var(--red-button-shadow);
+}
+
+.navbar button:hover {
+    background-color: var(--hover-red-button--color);
 }
 
 .nav-link:hover {
-    background-color: var(--gray);
+    background-color: var(--light-gray);
 }
 
 .nav-link--active {
-    background-color: var(--gray);
+    background-color: var(--light-gray);
 }

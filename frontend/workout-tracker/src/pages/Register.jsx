@@ -13,7 +13,7 @@ const RegisterPage = () => {
             <label htmlFor="email">Email</label>
             <input type="email" id="email" required />
 
-            <button type='submit'>Submit</button>
+            <button type='submit'>Sign up</button>
         </form>
     </>
 }

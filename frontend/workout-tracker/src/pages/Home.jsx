@@ -17,7 +17,7 @@ const Home = () => {
             <Workout name="workout-3" status="pending" date="12-01-2025" comment="workout comment" key="3" id="3" />
             <Workout name="workout-4" status="active" date="13-01-2025" comment="workout comment" key="4" id="4" />
         </div>
-        <div className="workouts-load-more">load more workouts</div>
+        <div className={styles.workoutsLoadMore}>Load More Workouts</div>
     </>
 }
 export default Home

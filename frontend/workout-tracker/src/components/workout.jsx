@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom'
 const Workout = ({ status, name, comment, date, id }) => {
 
     const navigate = useNavigate()
-    const deleteMessageHandler = () => {
+    const deleteMessageHandler = (e) => {
+        e.stopPropagation();
         const confirm = window.confirm("are you sure you want to delete this workout?")
         if (!confirm) return
 
@@ -17,7 +18,7 @@ const Workout = ({ status, name, comment, date, id }) => {
     }
 
     const editWorkoutHandler = (e) => {
-        console.log(e)
+        e.stopPropagation();
         navigate(`/workouts/${id}/edit`)
     }
 

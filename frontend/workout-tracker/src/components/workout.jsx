@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify'
-import styles from '../assets/css/workout.module.css'
+import styles from '../assets/css/Workout.module.css'
 import { FaTrash, FaPen } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 

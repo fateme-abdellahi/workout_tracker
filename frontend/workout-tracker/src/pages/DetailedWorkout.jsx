@@ -1,4 +1,4 @@
-import styles from '../assets/css/view-workout.module.css'
+import styles from '../assets/css/ViewWorkout.module.css'
 const DetailedWorkoutPage = ({ workoutId, workoutName, workoutDatetime, workoutComment, workoutStatus, exercises }) => {
     return <div className={styles.container}>
         <div className={styles.viewWorkoutWorkoutName}>workout name1</div>

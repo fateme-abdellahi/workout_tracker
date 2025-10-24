@@ -1,5 +1,3 @@
-import styles from '../assets/css/register.module.css'
-
 const RegisterPage = () => {
     return <>
         <form>
@@ -14,6 +12,8 @@ const RegisterPage = () => {
 
             <label htmlFor="email">Email</label>
             <input type="email" id="email" required />
+
+            <button type='submit'>Submit</button>
         </form>
     </>
 }

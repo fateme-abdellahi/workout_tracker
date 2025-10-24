@@ -1,4 +1,4 @@
-import styles from '../assets/css/add-workout.module.css'
+import styles from '../assets/css/AddWorkout.module.css'
 import { FaTimes } from 'react-icons/fa'
 
 const AddWorkoutPage = () => {

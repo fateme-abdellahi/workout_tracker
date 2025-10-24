@@ -1,5 +1,5 @@
 import Workout from "../components/Workout"
-import styles from '../assets/css/home.module.css'
+import styles from '../assets/css/Home.module.css'
 import { useNavigate } from 'react-router-dom'
 
 const Home = () => {

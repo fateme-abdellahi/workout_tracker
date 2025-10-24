@@ -6,31 +6,31 @@
     margin-top: 5vh;
 }
 
-.view-workout-workout-name {
+.viewWorkoutWorkoutName {
     font-size: 25px;
     font-weight: 900;
 }
 
-.view-workout-workout-status {
+.viewWorkoutWorkoutStatus {
     font-size: 17px;
     font-weight: 600;
     margin-bottom: 20px;
 }
 
-.view-workout-workout-status-active {
+.viewWorkoutWorkoutStatusActive {
     color: var(--green);
 }
 
-.view-workout-workout-status-pending {
+.viewWorkoutWorkoutStatusPending {
     color: var(--orange);
 }
 
-.view-workout-workout-comment {
+.viewWorkoutWorkoutComment {
     color: var(--dark-gray);
     margin-bottom: 30px;
 }
 
-.view-workout-workout-datetime {
+.viewWorkoutWorkoutDatetime {
     font-size: 15px;
     color: var(--dark-gray);
     margin-bottom: 5vh;

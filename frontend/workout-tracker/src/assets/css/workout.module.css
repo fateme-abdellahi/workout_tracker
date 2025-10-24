@@ -15,59 +15,59 @@
     box-shadow: var(--shadow-hover);
 }
 
-.workout-status * {
+.workoutStatus * {
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 700;
 }
 
-.workout-name {
+.workoutName {
     font-size: 22px;
     font-weight: 700;
 
 }
 
-.workout-comment {
+.workoutComment {
     color: var(--dark-gray);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.workout-date {
+.workoutDate {
     color: var(--dark-gray);
     font-size: small;
     font-weight: 700;
 }
 
-.workout-active {
+.workoutActive {
     border-left: 6px solid var(--green);
 }
 
-.workout-pending {
+.workoutPending {
     border-left: 6px solid var(--orange);
 
 }
 
-.workout-buttons {
+.workoutButtons {
     width: 50px;
     display: flex;
     justify-content: space-between;
 }
 
-.workout-buttons * {
+.workoutButtons * {
     width: 20px;
     height: 20px;
 }
 
-.workout-buttons *:hover {
+.workoutButtons *:hover {
     cursor: pointer;
 }
 
-.workout-delete-button {
+.workoutDeleteButton {
     color: var(--red);
 }
 
-.workout-edit-button {
+.workoutEditButton {
     color: var(--purple);
 }

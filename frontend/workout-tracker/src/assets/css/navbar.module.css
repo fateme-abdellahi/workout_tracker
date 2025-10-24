@@ -10,16 +10,16 @@
     font-weight: 900;
 }
 
-.nav-logo {
+.navLogo {
     display: flex;
     align-items: center;
 }
 
-.nav-logo:hover {
+.navLogo:hover {
     cursor: pointer;
 }
 
-.nav-link {
+.navLink {
     text-decoration: none;
     color: var(--dark-gray);
     padding: 5px 10px;
@@ -40,10 +40,10 @@
     background-color: var(--hover-red-button--color);
 }
 
-.nav-link:hover {
+.navLink:hover {
     background-color: var(--light-gray);
 }
 
-.nav-link--active {
+.navLinkActive {
     background-color: var(--light-gray);
 }

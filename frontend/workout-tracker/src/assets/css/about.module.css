@@ -1,6 +1,6 @@
 @import url(./utils/variables.css);
 
-.about-container {
+.aboutContainer {
     max-width: 800px;
     margin: 0 auto;
     padding: 3rem 1.5rem;
@@ -9,43 +9,43 @@
     line-height: 1.7;
 }
 
-.about-container h1 {
+.aboutContainer h1 {
     font-size: 2.25rem;
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
-.about-container h2 {
+.aboutContainer h2 {
     font-size: 1.5rem;
     margin-top: 2rem;
     margin-bottom: 0.75rem;
     font-weight: 600;
 }
 
-.about-container p {
+.aboutContainer p {
     font-size: 1.05rem;
     margin-bottom: 1rem;
 }
 
-.about-containera ul {
+.aboutContainera ul {
     list-style: none;
     margin-bottom: 50px;
 }
 
-.about-container li {
+.aboutContainer li {
     margin-bottom: 10px;
 }
 
-.about-container li::marker {
+.aboutContainer li::marker {
     content: "✅";
 }
 
-.about-container a {
+.aboutContainer a {
     color: var(--orange);
     text-decoration: none;
     font-weight: 700;
 }
 
-.about-container a:hover {
+.aboutContainer a:hover {
     text-decoration: underline;
 }

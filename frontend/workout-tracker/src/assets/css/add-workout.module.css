@@ -1,4 +1,5 @@
 @import url(./utils/variables.css);
+@import url(./utils/base.css);
 
 form {
     display: block;
@@ -52,7 +53,7 @@ legend {
     color: var(--dark-gray);
 }
 
-.exercises-form {
+.exercisesForm {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -60,13 +61,13 @@ legend {
     margin-top: 30px;
 }
 
-.exercises-form * {
+.exercisesForm * {
     border-radius: 5px;
     border: 2px solid var(--gray);
     padding: 1px 5px;
 }
 
-.exercises-form button {
+.exercisesForm button {
     border: none;
     background-color: var(--dark-green);
     padding: 8px;
@@ -76,30 +77,30 @@ legend {
     margin-top: 10px;
 }
 
-.exercises-form button:hover {
+.exercisesForm button:hover {
     cursor: pointer;
     background-color: var(--green);
 }
 
-.exercises-form input,
-.exercises-form textarea {
+.exercisesForm input,
+.exercisesForm textarea {
     margin-bottom: 5px;
     padding: 7px 10px;
     width: 100%;
 }
 
 
-#exercise-repetitions {
+#exerciseRepetitions {
     width: 100px;
     margin-right: 5px;
 }
 
-#exercise-sets {
+#exerciseSets {
     width: 65px;
     margin-right: 5px;
 }
 
-#exercise-weights {
+#exerciseWeights {
     width: 70px;
 }
 
@@ -119,7 +120,7 @@ button[type="submit"]:hover {
     background-color: var(--light-orange);
 }
 
-.added-exercises {
+.addedExercises {
     position: relative;
     line-height: 22px;
     display: flex;
@@ -134,17 +135,17 @@ button[type="submit"]:hover {
     color: var(--dark-gray);
 }
 
-.added-exercises-name {
+.addedExercisesName {
     width: 100%;
     font-weight: 700;
 }
 
-.delete-exercise-button {
+.deleteExerciseButton {
     color: var(--red);
     position: absolute;
     right: 10px;
 }
 
-.delete-exercise-button:hover {
+.deleteExerciseButton:hover {
     cursor: pointer;
 }

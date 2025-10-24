@@ -1,10 +1,10 @@
-import '../assets/css/view-workout.css'
+import styles from '../assets/css/view-workout.module.css'
 const DetailedWorkoutPage = ({ workoutId, workoutName, workoutDatetime, workoutComment, workoutStatus, exercises }) => {
-    return <div className='container'>
-        <div className='view-workout-workout-name'>workout name1</div>
-        <div className={`view-workout-workout-status ${workoutStatus === 'active' ? 'view-workout-workout-status-active' : 'view-workout-workout-status-pending'}`}>pending</div>
-        <div className='view-workout-workout-comment'>comment1</div>
-        <div className='view-workout-workout-datetime'>01/01/2025 10:10</div>
+    return <div className={styles.container}>
+        <div className={styles.viewWorkoutWorkoutName}>workout name1</div>
+        <div className={`${styles.viewWorkoutWorkoutStatus} ${workoutStatus === 'active' ? styles.viewWorkoutWorkoutStatusActive : styles.viewWorkoutWorkoutStatusPending}`}>pending</div>
+        <div className={styles.viewWorkoutWorkoutComment}>comment1</div>
+        <div className={styles.viewWorkoutWorkoutDatetime}>01/01/2025 10:10</div>
 
         <table>
             <caption>exercises</caption>

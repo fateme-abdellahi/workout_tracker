@@ -6,12 +6,14 @@ import EditWorkoutPage from './pages/EditWorkout'
 import AddWorkoutPage from './pages/AddWorkout'
 import DetailedWorkoutPage from './pages/DetailedWorkout'
 import About from './pages/About'
+import RegisterPage from './pages/Register'
 
 function App() {
   return (
     <Routes>
       <Route path='/' element={<MainLayout />} >
         <Route path='/' element={<Home />} />
+        <Route path='/register' element={<RegisterPage />} />
         <Route path='/about' element={<About />} />
         <Route path='/workouts/add' element={<AddWorkoutPage />} />
         <Route path='/workouts/:id/' element={<DetailedWorkoutPage />} />

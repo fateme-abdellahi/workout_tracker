@@ -1,8 +1,8 @@
-import '../assets/css/about.css'
+import styles from '../assets/css/about.module.css'
 
 export default function About() {
     return (
-        <main className="about-container">
+        <main className={styles.aboutContainer}>
             <h1>About</h1>
 
             <p>

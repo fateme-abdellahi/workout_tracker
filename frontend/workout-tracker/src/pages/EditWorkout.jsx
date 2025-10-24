@@ -1,4 +1,4 @@
-import '../assets/css/add-workout.css'
+import styles from '../assets/css/add-workout.module.css'
 import { FaTimes } from 'react-icons/fa'
 const EditWorkoutPage = ({ workoutId, workoutName, workoutDatetime, workoutComment, workoutStatus, exercises }) => {
     return <>
@@ -16,41 +16,41 @@ const EditWorkoutPage = ({ workoutId, workoutName, workoutDatetime, workoutComme
                 <option>Pending</option>
             </select>
 
-            <fieldset className='exercises'>
+            <fieldset className={styles.exercises}>
                 <legend>Edit Exercises</legend>
-                <div className='added-exercises'>
-                    <FaTimes className='delete-exercise-button' />
-                    <div className='added-exercises-name'>name</div>
-                    <div className='added-exercises-description'>description</div>
-                    <div className='added-exercises-datetime'><span>| </span>datetime</div>
-                    <div className='added-exercises-category'><span>| </span>category</div>
-                    <div className='added-exercises-repitition'><span>| </span>repetition</div>
-                    <div className='added-exercises-set'><span>| </span>set</div>
-                    <div className='added-exercises-weight'><span>| </span>weight</div>
+                <div className={styles.addedExercises}>
+                    <FaTimes className={styles.deleteExerciseButton} />
+                    <div className={styles.addedExercisesName}>name</div>
+                    <div className={styles.addedExercisesDescription}>description</div>
+                    <div className={styles.addedExercisesDatetime}><span>| </span>datetime</div>
+                    <div className={styles.addedExercisesCategory}><span>| </span>category</div>
+                    <div className={styles.addedExercisesRepitition}><span>| </span>repetition</div>
+                    <div className={styles.addedExercisesSet}><span>| </span>set</div>
+                    <div className={styles.addedExercisesWeight}><span>| </span>weight</div>
                 </div>
 
-                <div className='added-exercises'>
-                    <FaTimes className='delete-exercise-button' />
-                    <div className='added-exercises-name'>name</div>
-                    <div className='added-exercises-description'>description</div>
-                    <div className='added-exercises-datetime'><span>| </span>datetime</div>
-                    <div className='added-exercises-category'><span>| </span>category</div>
-                    <div className='added-exercises-repitition'><span>| </span>repetition</div>
-                    <div className='added-exercises-set'><span>| </span>set</div>
-                    <div className='added-exercises-weight'><span>| </span>weight</div>
+                <div className={styles.addedExercises}>
+                    <FaTimes className={styles.deleteExerciseButton} />
+                    <div className={styles.addedExercisesName}>name</div>
+                    <div className={styles.addedExercisesDescription}>description</div>
+                    <div className={styles.addedExercisesDatetime}><span>| </span>datetime</div>
+                    <div className={styles.addedExercisesCategory}><span>| </span>category</div>
+                    <div className={styles.addedExercisesRepitition}><span>| </span>repetition</div>
+                    <div className={styles.addedExercisesSet}><span>| </span>set</div>
+                    <div className={styles.addedExercisesWeight}><span>| </span>weight</div>
                 </div>
 
-                <div className='added-exercises'>
-                    <FaTimes className='delete-exercise-button' />
-                    <div className='added-exercises-name'>name</div>
-                    <div className='added-exercises-description'>description</div>
-                    <div className='added-exercises-datetime'><span>| </span>datetime</div>
-                    <div className='added-exercises-category'><span>| </span>category</div>
-                    <div className='added-exercises-repitition'><span>| </span>repetition</div>
-                    <div className='added-exercises-set'><span>| </span>set</div>
-                    <div className='added-exercises-weight'><span>| </span>weight</div>
+                <div className={styles.addedExercises}>
+                    <FaTimes className={styles.deleteExerciseButton} />
+                    <div className={styles.addedExercisesName}>name</div>
+                    <div className={styles.addedExercisesDescription}>description</div>
+                    <div className={styles.addedExercisesDatetime}><span>| </span>datetime</div>
+                    <div className={styles.addedExercisesCategory}><span>| </span>category</div>
+                    <div className={styles.addedExercisesRepitition}><span>| </span>repetition</div>
+                    <div className={styles.addedExercisesSet}><span>| </span>set</div>
+                    <div className={styles.addedExercisesWeight}><span>| </span>weight</div>
                 </div>
-                <div className='exercises-form'>
+                <div className={styles.exercisesForm}>
                     <input id="exercise-name" type='text' placeholder='exercise name' />
                     <textarea id='exercise-description' placeholder='description'></textarea>
                     <input type="text" id="exercise-category" placeholder='category' />

@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify'
-import '../assets/css/workout.css'
+import styles from '../assets/css/workout.module.css'
 import { FaTrash, FaPen } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
@@ -22,19 +22,19 @@ const Workout = ({ status, name, comment, date, id }) => {
         navigate(`/workouts/${id}/edit`)
     }
 
-    return <div onClick={() => navigate(`/workouts/${id}`)} className={`workout ${status === 'active' ? 'workout-active' : 'workout-pending'}`}>
-        <div className='workout-info'>
+    return <div onClick={() => navigate(`/workouts/${id}`)} className={`${styles.workout} ${status === 'active' ? `${styles.workoutActive}` : `${styles.workoutPending}`}`}>
+        <div>
 
-            <div className="workout-name">{name}</div>
-            <div className="workout-status">
+            <div className={styles.workoutName}>{name}</div>
+            <div className={styles.workoutStatus}>
                 <span>STATUS: </span>
                 <span>{status}</span>
             </div>
-            <div className="workout-date">{date}</div>
+            <div className={styles.workoutDate}>{date}</div>
         </div>
-        <div className='workout-buttons'>
-            <FaPen onClick={editWorkoutHandler} className='workout-edit-button' />
-            <FaTrash onClick={deleteMessageHandler} className='workout-delete-button' />
+        <div className={styles.workoutButtons}>
+            <FaPen onClick={editWorkoutHandler} className={styles.workoutEditButton} />
+            <FaTrash onClick={deleteMessageHandler} className={styles.workoutDeleteButton} />
         </div>
     </div>
 }

@@ -8,6 +8,7 @@
     padding: 15px 30px;
     border-radius: 10px;
     margin-bottom: 10px;
+    line-height: 25px;
 }
 
 .workout:hover {
@@ -21,8 +22,8 @@
 }
 
 .workout-name {
-    font-size: large;
-    font-weight: 800;
+    font-size: 22px;
+    font-weight: 700;
 
 }
 

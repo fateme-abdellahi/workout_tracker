@@ -1,7 +1,6 @@
 import '../assets/css/add-workout.css'
 import { FaTimes } from 'react-icons/fa'
-
-const AddWorkoutPage = () => {
+const EditWorkoutPage = ({ workoutId, workoutName, workoutDatetime, workoutComment, workoutStatus, exercises }) => {
     return <>
         <form>
             <label htmlFor="workout-name">Workout Name</label>
@@ -18,7 +17,29 @@ const AddWorkoutPage = () => {
             </select>
 
             <fieldset className='exercises'>
-                <legend>Add Exercises</legend>
+                <legend>Edit Exercises</legend>
+                <div className='added-exercises'>
+                    <FaTimes className='delete-exercise-button' />
+                    <div className='added-exercises-name'>name</div>
+                    <div className='added-exercises-description'>description</div>
+                    <div className='added-exercises-datetime'><span>| </span>datetime</div>
+                    <div className='added-exercises-category'><span>| </span>category</div>
+                    <div className='added-exercises-repitition'><span>| </span>repetition</div>
+                    <div className='added-exercises-set'><span>| </span>set</div>
+                    <div className='added-exercises-weight'><span>| </span>weight</div>
+                </div>
+
+                <div className='added-exercises'>
+                    <FaTimes className='delete-exercise-button' />
+                    <div className='added-exercises-name'>name</div>
+                    <div className='added-exercises-description'>description</div>
+                    <div className='added-exercises-datetime'><span>| </span>datetime</div>
+                    <div className='added-exercises-category'><span>| </span>category</div>
+                    <div className='added-exercises-repitition'><span>| </span>repetition</div>
+                    <div className='added-exercises-set'><span>| </span>set</div>
+                    <div className='added-exercises-weight'><span>| </span>weight</div>
+                </div>
+
                 <div className='added-exercises'>
                     <FaTimes className='delete-exercise-button' />
                     <div className='added-exercises-name'>name</div>
@@ -40,8 +61,8 @@ const AddWorkoutPage = () => {
                     <button type='button'>add exercise</button>
                 </div>
             </fieldset>
-            <button type="submit">Add Workout</button>
+            <button type="submit">Edit Workout</button>
         </form>
     </>
 }
-export default AddWorkoutPage
+export default EditWorkoutPage

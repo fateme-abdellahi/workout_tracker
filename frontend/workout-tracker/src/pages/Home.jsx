@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect } from "react"
 import { requestToApi } from "../assets/js/axios"
 import { useDispatch, useSelector } from "react-redux"
-import { setAll } from "../redux/Slices"
+import { deleteWorkout, setAll } from "../redux/Slices"
 
 const Home = () => {
     const navigate = useNavigate()
@@ -39,11 +39,16 @@ const Home = () => {
     const addWorkoutHandler = () => {
         navigate('/workouts/add/')
     }
+
+    const deleteWorkoutHandler = (id) => {
+        dispatch(deleteWorkout({ id, }))
+    }
+
     return <>
         <div className={styles.workouts}>
             <button onClick={addWorkoutHandler} className={styles.workoutAddButton}>+</button>
             <h1 className={styles.workoutsTitle}>Your Workouts</h1>
-            {workouts.map((workout) => <Workout exercises={workout.exercises} name={workout.name} status={workout.status} date={workout.date} comment={workout.comment} key={workout.id} id={workout.id} />
+            {workouts.map((workout) => <Workout deleteWorkoutHandler={deleteWorkoutHandler} exercises={workout.exercises} name={workout.name} status={workout.status} date={workout.date} comment={workout.comment} key={workout.id} id={workout.id} />
             )}
         </div>
     </>

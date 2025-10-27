@@ -2,19 +2,30 @@ import { toast } from 'react-toastify'
 import styles from '../assets/css/Workout.module.css'
 import { FaTrash, FaPen } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
+import { requestToApi } from '../assets/js/axios'
 
-const Workout = ({ status, name, date, id }) => {
+const Workout = ({ status, name, date, id, deleteWorkoutHandler }) => {
 
     const navigate = useNavigate()
-    const deleteMessageHandler = (e) => {
+    const deleteMessageHandler = async (e) => {
         e.stopPropagation();
         const confirm = window.confirm("are you sure you want to delete this workout?")
         if (!confirm) return
 
-        // delete task
+        const res = await requestToApi(`/delete/${id}/`, 'delete')
+        if (res.status === 204) {
+            toast.success("Workout Deleted Successfully")
+            deleteWorkoutHandler(id)
 
+        } else if (res.status === 401) {
+            navigate("/login")
+        } else if (res.status === 404) {
+            toast.error("workout doesn't exist")
+        }
+        else {
+            toast.error("something went wrong...")
+        }
 
-        toast.success("Workout Deleted Successfully")
     }
 
     const editWorkoutHandler = (e) => {

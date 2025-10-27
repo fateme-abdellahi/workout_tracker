@@ -30,11 +30,13 @@ export const userWorkoutsSlice = createSlice({
         add: (state, action) => {
             state.push({ ...action.payload, exercises: [...action.payload.exercises] })
         },
+        deleteWorkout: (state, action) => {
+            return state.filter(workout => workout.id != action.payload.id)
+        }
         // update:
-        // delete:
     }
 })
 
-export const { setAll, add } = userWorkoutsSlice.actions
+export const { setAll, add, deleteWorkout } = userWorkoutsSlice.actions
 
 export default userWorkoutsSlice.reducer

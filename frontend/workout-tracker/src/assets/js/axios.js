@@ -1,8 +1,9 @@
 import axios from "axios";
 
-// change this to your Django backend address
 const BASE_URL = "http://127.0.0.1:8000";
 
+
+// api for user with no credentials
 export const anonymus_user_api = axios.create({
     baseURL: BASE_URL,
     headers: {
@@ -19,3 +20,87 @@ const api = axios.create({
 });
 
 export default api;
+
+
+// get a new token for user with expired token
+export const api_refresh = async () => {
+
+    const tempAxios = axios.create({
+        baseURL: BASE_URL,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    try {
+        const res = await tempAxios.post("/auth/api/token/refresh/", JSON.stringify({
+            refresh: localStorage.getItem("refresh_token")
+        }))
+        const data = res.data
+        localStorage.setItem("refresh_token", data.refresh)
+        localStorage.setItem("access_token", data.access)
+        return res.status
+    }
+    catch (err) {
+        return err.status
+    }
+}
+
+// fetch data with expiration token handling
+export const requestToApi = async (endpoint, method, data = null) => {
+    try {
+        let res
+        if (method === 'post') {
+            res = await api.post(endpoint, JSON.stringify(data))
+        } else if (method === 'get') {
+            res = await api.get(endpoint)
+        } else if (method === 'delete') {
+            res = await api.delete(endpoint)
+        } else if (method === 'put') {
+            res = await api.put(endpoint)
+        }
+        return {
+            data: res.data,
+            status: res.status
+        }
+    } catch (err) {
+        if (err.status === 401) {
+            if (!localStorage.getItem("refresh_token") || !localStorage.getItem("access_token")) {
+                return {
+                    status: 401,
+                }
+            }
+            const authStatus = await api_refresh()
+            if (authStatus === 200) {
+                let fetchedData
+                try {
+                    if (data) {
+                        fetchedData = await api.post(endpoint, data)
+                        return {
+                            status: fetchedData.status,
+                            data: fetchedData.data
+                        }
+                    } else {
+                        fetchedData = await api.get(endpoint, data)
+                        return {
+                            ...fetchedData,
+                            status: fetchedData.status,
+                            data: fetchedData.data
+                        }
+                    }
+                } catch (err) {
+                    return {
+                        status: err.status,
+                        data: err.data
+                    }
+                }
+            } else {
+                return {
+                    status: authStatus.status
+                }
+            }
+        }
+        return {
+            status: err.status
+        }
+    }
+}

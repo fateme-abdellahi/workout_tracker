@@ -24,6 +24,7 @@ export default function About() {
                 <li>Django & Django REST Framework</li>
                 <li>JWT authentication</li>
                 <li>Axios for API calls</li>
+                <li>Formik for handling forms</li>
             </ul>
 
             <h2>Developer</h2>

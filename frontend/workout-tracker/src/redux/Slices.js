@@ -32,8 +32,7 @@ export const userWorkoutsSlice = createSlice({
         },
         deleteWorkout: (state, action) => {
             return state.filter(workout => workout.id != action.payload.id)
-        }
-        // update:
+        },
     }
 })
 

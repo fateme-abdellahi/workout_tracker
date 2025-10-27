@@ -9,23 +9,12 @@ import { toast } from 'react-toastify';
 
 const AddWorkoutPage = () => {
 
-    const [exercises, setExercises] = useState([
-        // {
-        // id: 0,
-        // exercise_name: '',
-        // description: '',
-        // category: '',
-        // repetitions: '',
-        // sets: '',
-        // weights: '',
-        // }
-    ])
+    const [exercises, setExercises] = useState([])
 
     const [error, setError] = useState('')
 
     const navigate = useNavigate()
 
-    console.log(exercises)
 
     const submitHandler = async (values) => {
 
@@ -51,10 +40,7 @@ const AddWorkoutPage = () => {
             exercises: exercisesTemp
         }
 
-        console.log("data:", data)
-
         const res = await requestToApi("/create/", 'post', data)
-
 
         if (res.status === 201) {
             toast.success('workout created successfully.')
@@ -73,11 +59,6 @@ const AddWorkoutPage = () => {
 
     const valiadationSchema = yup.object({
         workoutName: yup.string().required("this field is required"),
-        // exerciseSets: yup.string().required("this field is required"),
-        // exerciseName: yup.string().required("this field is required"),
-        // exerciseCategory: yup.string().required("this field is required"),
-        // exerciseRepetitions: yup.string().required("this field is required"),
-        // exerciseDescription: yup.string().required("this field is required"),
     })
 
     const addExerciseHandler = (values) => {

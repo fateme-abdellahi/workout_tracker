@@ -10,10 +10,8 @@ const LoginPage = () => {
     const navigate = useNavigate()
 
     const handleSubmit = async (values) => {
-        console.log(values)
         try {
             const res = await anonymus_user_api.post('/auth/api/token/', values)
-            console.log(res)
             if (res.status === 200) {
                 const data = res.data
                 localStorage.setItem("access_token", data.access)
@@ -21,7 +19,6 @@ const LoginPage = () => {
                 navigate("/")
             }
         } catch (err) {
-            console.log(err)
             if (err.status === 400) {
                 setError("please enter data correctly.")
             } else if (err.status === 401) {

@@ -65,6 +65,8 @@ export const requestToApi = async (endpoint, method, data = null) => {
     } catch (err) {
         if (err.status === 401) {
             if (!localStorage.getItem("refresh_token") || !localStorage.getItem("access_token")) {
+                console.log("-2")
+
                 return {
                     status: 401,
                 }
@@ -73,14 +75,39 @@ export const requestToApi = async (endpoint, method, data = null) => {
             if (authStatus === 200) {
                 let fetchedData
                 try {
-                    if (data) {
+                    if (method === 'post') {
+                        console.log("-1")
+
                         fetchedData = await api.post(endpoint, data)
                         return {
+                            ...fetchedData,
                             status: fetchedData.status,
                             data: fetchedData.data
                         }
-                    } else {
+                    } else if (method === 'get') {
                         fetchedData = await api.get(endpoint, data)
+                        console.log("0")
+
+                        return {
+                            ...fetchedData,
+                            status: fetchedData.status,
+                            data: fetchedData.data
+                        }
+                    }
+                    else if (method === 'put') {
+                        fetchedData = await api.put(endpoint, data)
+                        console.log("1")
+
+                        return {
+                            ...fetchedData,
+                            status: fetchedData.status,
+                            data: fetchedData.data
+                        }
+                    }
+                    else if (method === 'delete') {
+                        console.log("2")
+
+                        fetchedData = await api.delete(endpoint, data)
                         return {
                             ...fetchedData,
                             status: fetchedData.status,
@@ -88,18 +115,26 @@ export const requestToApi = async (endpoint, method, data = null) => {
                         }
                     }
                 } catch (err) {
+                    console.log("3")
+
                     return {
                         status: err.status,
                         data: err.data
                     }
                 }
             } else {
+                console.log("4")
                 return {
+                    ...authStatus,
                     status: authStatus.status
                 }
             }
+            console.log("55")
         }
+        console.log(err)
         return {
+            ...err,
+            data: err.response?.data,
             status: err.status
         }
     }

@@ -4,7 +4,6 @@ import '../assets/css/utils/form.css';
 import { anonymus_user_api } from '../assets/js/axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from '../assets/css/Register.module.css';
 
 const RegisterPage = () => {
 

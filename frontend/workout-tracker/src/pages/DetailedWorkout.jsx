@@ -1,10 +1,31 @@
+import { useSelector } from 'react-redux'
 import styles from '../assets/css/ViewWorkout.module.css'
-const DetailedWorkoutPage = ({ workoutId, workoutName, workoutDatetime, workoutComment, workoutStatus, exercises }) => {
+import { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+const DetailedWorkoutPage = () => {
+
+    const workouts = useSelector(state => state.userWorkouts)
+
+    const navigate = useNavigate()
+
+
+    const { id } = useParams()
+
+
+    const workout = workouts.find((workout) => workout.id == id)
+
+    useEffect(() => {
+        if (!workout) {
+            navigate("/")
+        }
+    }, [])
+
+
     return <div className={styles.container}>
-        <div className={styles.viewWorkoutWorkoutName}>workout name1</div>
-        <div className={`${styles.viewWorkoutWorkoutStatus} ${workoutStatus === 'active' ? styles.viewWorkoutWorkoutStatusActive : styles.viewWorkoutWorkoutStatusPending}`}>pending</div>
-        <div className={styles.viewWorkoutWorkoutComment}>comment1</div>
-        <div className={styles.viewWorkoutWorkoutDatetime}>01/01/2025 10:10</div>
+        <div className={styles.viewWorkoutWorkoutName}>{workout?.name}</div>
+        <div className={`${styles.viewWorkoutWorkoutStatus} ${workout?.status === 'active' ? styles.viewWorkoutWorkoutStatusActive : styles.viewWorkoutWorkoutStatusPending}`}>{workout?.status}</div>
+        <div className={styles.viewWorkoutWorkoutComment}>{workout?.comment}</div>
+        <div className={styles.viewWorkoutWorkoutDatetime}>{workout?.date}</div>
 
         <table>
             <caption>exercises</caption>
@@ -19,38 +40,15 @@ const DetailedWorkoutPage = ({ workoutId, workoutName, workoutDatetime, workoutC
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>name1</td>
-                    <td>description1</td>
-                    <td>category1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>10 kg</td>
+                {workout?.exercises.map((exercise) => <tr key={exercise.id}>
+                    <td>{exercise.name}</td>
+                    <td>{exercise.description}</td>
+                    <td>{exercise.category}</td>
+                    <td>{exercise.sets}</td>
+                    <td>{exercise.repetitions}</td>
+                    <td>{exercise.weights}</td>
                 </tr>
-                <tr>
-                    <td>name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2 name2name2 name2 name2 name2</td>
-                    <td>description2 description2 description2 description2 description2 description2 description2 description2 description2 description2 description2 description2 description2 description2 description2 description2 description2 description2</td>
-                    <td>category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2 category2</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>10 kg 10 kg 10 kg 10 kg 10 kg 10 kg 10 kg 10 kg 10 kg 10 kg10 kg 10 kg 10 kg 10 kg 10 kg 10 kg 10 kg  10 kg 10 kg 10 kg 10 kg10 kg 10 kg 10 kg 10 kg 10 kg 10 kg 10 kg </td>
-                </tr>
-                <tr>
-                    <td>name3</td>
-                    <td>description3</td>
-                    <td>category3</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>10 kg</td>
-                </tr>
-                <tr>
-                    <td>name4</td>
-                    <td>description4</td>
-                    <td>category4</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>10 kg</td>
-                </tr>
+                )}
             </tbody>
         </table>
     </div>

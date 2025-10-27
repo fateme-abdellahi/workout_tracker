@@ -3,7 +3,7 @@ import styles from '../assets/css/Workout.module.css'
 import { FaTrash, FaPen } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
-const Workout = ({ status, name, comment, date, id }) => {
+const Workout = ({ status, name, date, id }) => {
 
     const navigate = useNavigate()
     const deleteMessageHandler = (e) => {

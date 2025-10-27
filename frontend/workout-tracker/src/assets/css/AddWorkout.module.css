@@ -1,45 +1,6 @@
 @import url(./utils/variables.css);
 @import url(./utils/base.css);
 
-form {
-    display: block;
-    margin: auto;
-    margin: 35px auto;
-    box-shadow: var(--shadow);
-    border-radius: 10px;
-    padding: 35px 30px;
-    max-width: 1000px;
-}
-
-input,
-label,
-textarea {
-    display: block;
-    outline: none;
-}
-
-form>input,
-form>textarea {
-    margin-bottom: 20px;
-    margin-top: 3px;
-    width: 100%;
-    border: 2px solid var(--gray);
-    padding: 10px 12px;
-    font-size: large;
-    border-radius: 5px;
-}
-
-form>label {
-    font-size: 15px;
-}
-
-select {
-    border: 2px solid var(--gray);
-    padding: 3px;
-    border-radius: 4px;
-    width: 100px;
-}
-
 .exercises {
     margin: 30px 10px;
     padding: 30px;
@@ -49,9 +10,7 @@ select {
 
 }
 
-legend {
-    color: var(--dark-gray);
-}
+
 
 .exercisesForm {
     display: flex;
@@ -104,21 +63,7 @@ legend {
     width: 70px;
 }
 
-button[type="submit"] {
-    background-color: var(--orange);
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 17px;
-    font-weight: 600;
-    margin-top: 10px;
-}
 
-button[type="submit"]:hover {
-    background-color: var(--light-orange);
-}
 
 .addedExercises {
     position: relative;

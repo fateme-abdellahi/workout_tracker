@@ -53,7 +53,7 @@ button[type="submit"] {
     color: white;
     font-size: 17px;
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 25px;
 }
 
 button[type="submit"]:hover {

@@ -1,6 +1,6 @@
 import styles from '../assets/css/AddWorkout.module.css'
 import { FaTimes } from 'react-icons/fa'
-import { Field, ErrorMessage, Form, Formik, useFormikContext } from 'formik';
+import { Field, ErrorMessage, Form, Formik } from 'formik';
 import * as yup from 'yup';
 import { useState } from 'react';
 import { requestToApi } from '../assets/js/axios';
@@ -9,7 +9,6 @@ import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 
 const EditWorkoutPage = () => {
-
     const { id } = useParams()
 
     const workouts = useSelector(state => state.userWorkouts)
@@ -72,7 +71,11 @@ const EditWorkoutPage = () => {
         workoutName: yup.string().required("this field is required"),
     })
 
-    const addExerciseHandler = (values) => {
+    const addExerciseHandler = (values, setFieldValue) => {
+        if (!values.exerciseName || !values.exerciseCategory || !values.exerciseDescription || !values.exerciseRepetitions || !values.exerciseSets) {
+            setError("Please fill exercise fields correctly.")
+            return
+        }
         setExercises([...exercises, {
             id: Date.now(),
             exercise_name: values.exerciseName,
@@ -82,8 +85,14 @@ const EditWorkoutPage = () => {
             sets: values.exerciseSets,
             weights: values.exerciseWeights
         }])
+        setFieldValue("exerciseName", "")
+        setFieldValue("exerciseCategory", "")
+        setFieldValue("exerciseDescription", "")
+        setFieldValue("exerciseRepetitions", "")
+        setFieldValue("exerciseSets", "")
+        setFieldValue("exerciseWeights", "")
+        setError("")
     }
-
     const deleteExerciseHandler = (id) => {
         setExercises(prevExercises => prevExercises.filter(exercise => exercise.id !== id))
     }
@@ -100,7 +109,7 @@ const EditWorkoutPage = () => {
         exerciseRepetitions: "",
         exerciseDescription: "",
     }} validationSchema={valiadationSchema} onSubmit={submitHandler}>
-        {({ values, isSubmitting }) => <Form>
+        {({ values, isSubmitting, setFieldValue }) => <Form>
             <label htmlFor="workout-name">Workout Name*</label>
             <Field type="text" id="workout-name" name="workoutName" />
             <ErrorMessage component='div' name='workoutName' className='formFieldErrorMessage' />
@@ -119,25 +128,24 @@ const EditWorkoutPage = () => {
 
             <fieldset className={styles.exercises}>
                 <legend>Add Exercises</legend>
-                {exercises?.map(exercise => <div key={exercise.id} className={styles.addedExercises}>
+                {exercises.map(exercise => <div key={exercise.id} className={styles.addedExercises}>
                     <FaTimes className={styles.deleteExerciseButton} onClick={() => deleteExerciseHandler(exercise.id)} />
                     <div className={styles.addedExercisesName}>{exercise.exercise_name}</div>
-                    <div className={styles.addedExercisesDescription}>{exercise.description}</div>
-                    <div className={styles.addedExercisesDatetime}><span>| </span>{exercise.datetime}</div>
-                    <div className={styles.addedExercisesCategory}><span>| </span>{exercise.category}</div>
-                    <div className={styles.addedExercisesRepitition}><span>| </span>{exercise.repetitions}</div>
-                    <div className={styles.addedExercisesSet}><span>| </span>{exercise.sets}</div>
-                    <div className={styles.addedExercisesWeight}><span>| </span>{exercise.weights}</div>
+                    {exercise.description ? <div className={styles.addedExercisesDescription}>{exercise.description}</div> : ""}
+                    {exercise.datetime ? <div className={styles.addedExercisesDatetime}><span>▪️ </span>{exercise.datetime}</div> : ""}
+                    {exercise.category ? <div className={styles.addedExercisesCategory}><span>▪️ </span>{exercise.category}</div> : ""}
+                    {exercise.repetitions ? <div className={styles.addedExercisesRepitition}><span>▪️ </span>{exercise.repetitions}</div> : ""}
+                    {exercise.sets ? <div className={styles.addedExercisesSet}><span>▪️ </span>{exercise.sets}</div> : ""}
+                    {exercise.weights ? <div className={styles.addedExercisesWeight}><span>▪️ </span>{exercise.weights}</div> : ""}
                 </div>)}
                 <div className={styles.exercisesForm}>
-                    <Field id="exercise-name" name="exerciseName" type='text' placeholder='exercise name' />
-
-                    <Field component='textarea' id='exercise-description' name='exerciseDescription' placeholder='description'></Field>
-                    <Field type="text" id="exercise-category" name="exerciseCategory" placeholder='category' />
-                    <Field type="number" id="exercise-repetitions" name="exerciseRepetitions" placeholder='repetitions' />
-                    <Field type="number" id="exercise-sets" name="exerciseSets" placeholder='sets' />
+                    <Field id="exercise-name" name="exerciseName" type='text' placeholder='exercise name*' />
+                    <Field component='textarea' id='exercise-description' name='exerciseDescription' placeholder='description*'></Field>
+                    <Field type="text" id="exercise-category" name="exerciseCategory" placeholder='category*' />
+                    <Field type="number" id="exercise-repetitions" name="exerciseRepetitions" placeholder='repetitions*' />
+                    <Field type="number" id="exercise-sets" name="exerciseSets" placeholder='sets*' />
                     <Field id='exercise-weights' name='exerciseWeights' placeholder='weights' />
-                    <button onClick={() => addExerciseHandler(values)} type='button'>add exercise</button>
+                    <button onClick={() => addExerciseHandler(values, setFieldValue)} type='button'>add exercise</button>
                 </div>
 
                 {error ? <div className='formFieldErrorMessage'>{error}</div> : ''}

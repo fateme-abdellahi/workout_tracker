@@ -5,6 +5,7 @@ import { useEffect } from "react"
 import { requestToApi } from "../assets/js/axios"
 import { useDispatch, useSelector } from "react-redux"
 import { deleteWorkout, setAll } from "../redux/Slices"
+import { toast } from "react-toastify"
 
 const Home = () => {
     const navigate = useNavigate()
@@ -20,7 +21,7 @@ const Home = () => {
             } else if (res.status === 401) {
                 navigate("/login")
             } else {
-                console.error("something went wrong...")
+                toast.error("something went wrong.")
             }
             return null
         }
@@ -47,7 +48,7 @@ const Home = () => {
     return <>
         <div className={styles.workouts}>
             <button onClick={addWorkoutHandler} className={styles.workoutAddButton}>+</button>
-            <h1 className={styles.workoutsTitle}>Your Workouts</h1>
+            {workouts.length > 0 ? <h1 className={styles.workoutsTitle}>Your Workouts</h1> : <div className={styles.emptyWorkout}>You don't have any workouts yet.</div>}
             {workouts.map((workout) => <Workout deleteWorkoutHandler={deleteWorkoutHandler} exercises={workout.exercises} name={workout.name} status={workout.status} date={workout.date} comment={workout.comment} key={workout.id} id={workout.id} />
             )}
         </div>

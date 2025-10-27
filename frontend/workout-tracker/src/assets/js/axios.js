@@ -32,9 +32,9 @@ export const api_refresh = async () => {
         },
     })
     try {
-        const res = await tempAxios.post("/auth/api/token/refresh/", JSON.stringify({
+        const res = await tempAxios.post("/auth/api/token/refresh/", {
             refresh: localStorage.getItem("refresh_token")
-        }))
+        })
         const data = res.data
         localStorage.setItem("refresh_token", data.refresh)
         localStorage.setItem("access_token", data.access)
@@ -50,13 +50,13 @@ export const requestToApi = async (endpoint, method, data = null) => {
     try {
         let res
         if (method === 'post') {
-            res = await api.post(endpoint, JSON.stringify(data))
+            res = await api.post(endpoint, data)
         } else if (method === 'get') {
             res = await api.get(endpoint)
         } else if (method === 'delete') {
             res = await api.delete(endpoint)
         } else if (method === 'put') {
-            res = await api.put(endpoint, JSON.stringify(data))
+            res = await api.put(endpoint, data)
         }
         return {
             data: res.data,

@@ -48,7 +48,7 @@ const LoginPage = () => {
             <ErrorMessage name='password' component='div' className='formFieldErrorMessage' />
 
             <button type='submit'>Sign in</button>
-            <h3 className='alterAuthText'>Have no account?</h3>
+            <h3 className='alterAuthText'>Don't have an account?</h3>
             <button onClick={() => navigate("/register")} className='alterAuthButton' type='button'>Sign up</button>
             {error ? <div className='formFieldErrorMessage'>{error}</div> : ""}
 

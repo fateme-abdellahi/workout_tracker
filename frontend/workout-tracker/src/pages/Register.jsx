@@ -1,11 +1,43 @@
-import { Field, ErrorMessage, Form, Formik } from 'formik'
-import * as yup from 'yup'
-import '../assets/css/utils/form.css'
+import { Field, ErrorMessage, Form, Formik } from 'formik';
+import * as yup from 'yup';
+import '../assets/css/utils/form.css';
+import { anonymus_user_api } from '../assets/js/axios';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from '../assets/css/Register.module.css';
 
 const RegisterPage = () => {
 
+    const [error, setError] = useState(null);
+    const navigate = useNavigate()
+
     const handleSubmit = async (values) => {
-        console.log(values)
+        try {
+            const res = await anonymus_user_api.post('/auth/signup/', values)
+            if (res.status === 201) {
+                const data = res.data
+                localStorage.setItem("access_token", data.access)
+                localStorage.setItem("refresh_token", data.refresh)
+                navigate("/")
+            }
+        } catch (err) {
+            if (err.status === 400) {
+                const res = err.response?.data
+                if (res.email) {
+                    setError(res.email[0])
+                } else if (res.password) {
+                    setError(res.password[0])
+                } else if (res.password2) {
+                    setError(res.password2[0])
+                } else if (res.username) {
+                    setError(res.username[0])
+                } else {
+                    setError("please enter data correctly.");
+                }
+            } else {
+                setError("something went wrong...");
+            }
+        }
     }
 
     const valiadationSchema = yup.object({
@@ -40,6 +72,10 @@ const RegisterPage = () => {
             <ErrorMessage name='email' component='div' className='formFieldErrorMessage' />
 
             <button type='submit'>Sign up</button>
+
+            <h3 className='alterAuthText'>Already have an account?</h3>
+            <button onClick={() => navigate("/login")} className='alterAuthButton' type='button'>Sign in</button>
+            {error ? <div className='formFieldErrorMessage'>{error}</div> : ""}
         </Form>)
         }
     </Formik>

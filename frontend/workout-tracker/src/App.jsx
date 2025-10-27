@@ -14,13 +14,13 @@ function App() {
     <Routes>
       <Route path='/' element={<MainLayout />} >
         <Route path='/' element={<Home />} />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path='/login' element={<LoginPage />} />
         <Route path='/about' element={<About />} />
         <Route path='/workouts/add' element={<AddWorkoutPage />} />
         <Route path='/workouts/:id/' element={<DetailedWorkoutPage />} />
         <Route path='/workouts/:id/edit' element={<EditWorkoutPage />} />
       </Route>
+      <Route path='/register' element={<RegisterPage />} />
+      <Route path='/login' element={<LoginPage />} />
     </Routes>
   )
 }

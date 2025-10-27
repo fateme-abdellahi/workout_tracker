@@ -5,8 +5,8 @@ import logo from '../assets/images/logo.png'
 const Navbar = () => {
     const navigate = useNavigate()
     const logoutHandler = () => {
-        localStorage.removeItem("access-token")
-        localStorage.removeItem("refresh-token")
+        localStorage.removeItem("access_token")
+        localStorage.removeItem("refresh_token")
         navigate("/login")
     }
 

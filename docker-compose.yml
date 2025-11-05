@@ -6,7 +6,7 @@ services:
     container_name: backend
     volumes:
       - ./backend:/backend
-      - sqlite_data:/backend/db.sqlite3- sqlite_data:/backend/db.sqlite3
+      - sqlite_data:/backend/db_data
     ports:
       - "8000:8000"
     command: >

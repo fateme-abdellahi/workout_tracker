@@ -1,0 +1,30 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    volumes:
+      - ./backend:/backend
+      - sqlite_data:/backend/db_data
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "python manage.py migrate; exec python manage.py runserver  0.0.0.0:8000"
+
+  frontend:
+    depends_on: 
+      - backend
+    ports:
+      - "3000:3000"
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    volumes:
+      - ./frontend:/frontend
+      - /frontend/node_modules 
+    command: npm run dev -- --host 0.0.0.0
+
+volumes:
+  sqlite_data:

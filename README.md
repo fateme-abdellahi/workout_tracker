@@ -12,8 +12,8 @@ A full-stack web application for tracking and managing your personal workout rou
   - [Backend Setup](#backend-setup)
   - [Frontend Setup](#frontend-setup)
 - [Running the Application](#running-the-application)
-- [Environment Configuration](#%EF%B8%8F-environment-configuration)
-- [Troubleshooting](#%F0%9F%94%A7-troubleshooting)
+- [Environment Configuration](#environment-configuration)
+- [Troubleshooting](#troubleshooting)
 - [API Documentation](#api-documentation)
 - [Project Management](#project-management)
 - [Docker & Containerization](#docker--containerization)
@@ -21,6 +21,7 @@ A full-stack web application for tracking and managing your personal workout rou
 - [Testing](#testing)
 - [Contributing](#contributing)
 - [License](#license)
+
 
 ## 📝 Overview
 
@@ -294,14 +295,6 @@ DJANGO_SECRET_KEY=your-secret-key-here  # Generate a strong secret key
 python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 ```
 
-### Frontend Environment Variables
-
-The frontend uses Vite's environment variables. Create a `.env` file in `frontend/`:
-
-```properties
-VITE_API_URL=http://localhost:8000  # Backend API URL
-```
-
 ## 🔧 Troubleshooting
 
 ### Port Already in Use
@@ -430,21 +423,15 @@ cd backend
 python manage.py test
 ```
 
-## 📝 License
-
-This project is licensed under the MIT License. See the `backend/LICENSE` file for details.
-
 ## 👥 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
----
-
-For more information about the backend API, see `backend/README.md`.
 
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 ## 📞 Contact
 
